@@ -1,3 +1,3 @@
-import main
+import houseOfDanger.main
 
 main
