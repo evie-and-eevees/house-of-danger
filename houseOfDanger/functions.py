@@ -1,6 +1,8 @@
 import textwrap
 import random
 import json
+import sys
+sys.path.append("./venv/Scripts")
 from PIL import Image
 import time
 import pandas as pd
