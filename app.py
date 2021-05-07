@@ -1,3 +1,3 @@
-import houseOfDanger.main
+import houseOfDanger as hod
 
-main
+hod.main
