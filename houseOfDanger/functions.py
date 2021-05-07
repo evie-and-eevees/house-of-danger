@@ -1,7 +1,6 @@
 import textwrap
 import random
 import json
-import pandas as pd
 
 
 dangerMeter = [3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 2, 2, 2]
@@ -18,19 +17,10 @@ inv = {'danger': dangDict, 'psychic': psychDict, 'climbing': climbDict, 'fightin
 
 
 def inventory():
-    a = []
-    b = []
-    c = []
     for x in inv.items():
-           if len(x[1]) > 0:
-                  for y in x[1]:
-                         a.append(x[0])
-                         b.append(y)
-                         c.append(x[1][y][0])
-    df = pd.DataFrame(a, columns=['Category'])
-    df['Name'] = b
-    df['Amount/Desc'] = c
-    print(df)
+       for y in x:
+              print(f'{y}: {x[y][1]}')
+              print()
 
 
 def wrap(text):
