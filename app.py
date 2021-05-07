@@ -1,3 +1,6 @@
-import houseOfDanger as hod
+import sys
+sys.path.append('./houseOfDanger')
 
-hod.main.py
+import main
+
+main
