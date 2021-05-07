@@ -1,7 +1,5 @@
 import chap1Cards as ch1
 from functions import *
-from PIL import Image
-
 
 def one(psych, danger):
     text = [
