@@ -1,10 +1,6 @@
 import textwrap
 import random
 import json
-import sys
-sys.path.append("./venv/Scripts")
-from PIL import Image
-import time
 import pandas as pd
 
 
@@ -257,7 +253,7 @@ def loadSave():
             chapter = data[x][2]
     return psych, danger, chapter
 
-
+"""
 def opener():
     with Image.open('opener.jpg') as pic:
         print("  You will have two minutes to view the photo of the nightmare.")
@@ -265,7 +261,7 @@ def opener():
         pic.show()
         time.sleep(120)
     pic.close()
-
+"""
 
 def searchInv(num):
     for x in items.keys():
@@ -273,7 +269,8 @@ def searchInv(num):
             return True
     return False
 
-
+"""
 def showImage(href):
     with Image.open(href) as pic:
         pic.show()
+"""
