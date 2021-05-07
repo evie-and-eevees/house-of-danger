@@ -1,3 +1,3 @@
 import houseOfDanger as hod
 
-hod.main
+hod.main.py
