@@ -2,7 +2,6 @@ import chap1Cards as ch1
 import chap2Cards as ch2
 from functions import save
 from functions import loadSave
-from functions import opener
 
 
 print('Welcome To Choose Your Own Adventure: House of Danger, a cooperative adventure game by Prospero Hall, '
@@ -14,7 +13,6 @@ if start == 'n':
     psych = 3
     danger = 0
 
-    opener()
     psych, danger = ch1.one(psych, danger)
     choice = input('Would you like to save your progress? [y/n] ')
     while choice not in ['y', 'n']:
