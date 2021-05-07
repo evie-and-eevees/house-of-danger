@@ -308,6 +308,7 @@ def twenty_six():
 
 
 def twenty_seven():
-    clue27 = Image.open('clue27.jpg')
-    clue27.show()
-    addInv('items', 'Premonition 27', 'clue27.jpg')
+#    clue27 = Image.open('clue27.jpg')
+#    clue27.show()
+#    addInv('items', 'Premonition 27', 'clue27.jpg')
+     pass   
