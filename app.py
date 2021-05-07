@@ -1,3 +1,3 @@
-import houseOfDanger.main
+from houseOfDanger import *
 
 main
