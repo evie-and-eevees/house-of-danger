@@ -21,8 +21,8 @@ def two(psych):
         "Keep this item. Move forward 2 spaces on the Psychic Scale. Finish Story Card 4"
     ]
     wrap(text)
-    addInv('fighting', 'Cavalry Sabre (2)', "It's very heavy and quite sharp. Your psychic senses tell you this is an "
-                                            "important item.", amount=2)
+    addInv('fighting', 'Cavalry Sabre 2', "It's very heavy and quite sharp. Your psychic senses tell you this is an "
+                                          "important item.", amount=2)
     psych = psychUp(psych, 2)
     return psych
 
@@ -34,7 +34,7 @@ def three(psych):
         "Keep this item. Move forward 2 spaces on the Psychic Scale. Finish Story Card 18."
     ]
     wrap(text)
-    addInv('items', 'Truck Key (3)',
+    addInv('items', 'Truck Key 3',
            'A truck key you found in a lockbox. Your psychic senses tell you this is an important '
            'item.')
     psych = psychUp(psych, 2)
@@ -59,7 +59,7 @@ def five():
         "Keep this item. Finish Story card 15."
     ]
     wrap(text)
-    addInv('strength', 'Shears (5)',
+    addInv('strength', 'Shears 5',
            'A pair of garden shears you pulled from a shrub. They could help you pry something '
            'open.', amount=2)
 
@@ -71,7 +71,7 @@ def six():
         "Keep this item. Finish Story Card 27."
     ]
     wrap(text)
-    addInv('danger', 'First Aid Kit (6)',
+    addInv('danger', 'First Aid Kit 6',
            "This first aid kit is fully stocked. The way things are going, you're sure you'll need it. Discard at any "
            "time to lower Danger Meter by four.", amount=4)
 
@@ -84,7 +84,7 @@ def seven(psychic, danger):
         "Keep this item. Move forward 1 space on the Psychic Scale. Go to Story Card 30."
     ]
     wrap(text)
-    addInv('items', 'Satellite Dish (7)', 'Your psychic senses tell you this is an important item.')
+    addInv('items', 'Satellite Dish 7', 'Your psychic senses tell you this is an important item.')
     psychic = psychUp(psychic, 1)
     psych, danger = ch1.thirty(psychic, danger)
     return psych, danger
@@ -184,14 +184,14 @@ def fifteen():
         "Discard any Battery to automatically win a Perception challenge.", "Keep this item. Finish Story Card 14"
     ]
     wrap(text)
-    addInv('danger', 'Flashlight (15)', 'Discard any Battery to automatically win a Perception challenge')
+    addInv('danger', 'Flashlight 15', 'Discard any Battery to automatically win a Perception challenge')
 
 
 def sixteen():
     text = [
         "It takes some muscle, but you manage to remove the lid and are surprised to find that not only is there no "
-        "body, but an opening to a secret passageway offers yet another way out of the mausoleum.", "To take the secret"
-                                                                                                    " passageway, enter 'twenty four' to draw CLUE 24."
+        "body, but an opening to a secret passageway offers yet another way out of the mausoleum.",
+        "To take the secret passageway, enter 'twenty four' to draw CLUE 24."
     ]
     wrap(text)
 
@@ -223,7 +223,7 @@ def nineteen(psych):
     ]
     wrap(text)
     psych = psychUp(psych, 1)
-    addInv('items', 'Hedge Maze Map (19)',
+    addInv('items', 'Hedge Maze Map 19',
            'The paper looks like a map to the hedge maze. Your psychic senses tell you this '
            'is an important item.')
     return psych
@@ -248,7 +248,7 @@ def twenty_one(psych):
         "Keep this item."
     ]
     wrap(text)
-    addInv('items', 'Whirring Metal Sphere (21)', 'Your psychic senses tell you this is an important item.')
+    addInv('items', 'Whirring Metal Sphere 21', 'Your psychic senses tell you this is an important item.')
     psych = psychUp(psych, 3)
     return psych
 
@@ -270,7 +270,7 @@ def twenty_three(psych):
         "Keep this item. Move forward 1 space on the Psychic Scale. Finish Story Card 5"
     ]
     wrap(text)
-    addInv('strength', 'Large Wooden Dowel (23)',
+    addInv('strength', 'Large Wooden Dowel 23',
            'Your psychic senses tell you this is an important item. Fighting roll + 2',
            2)
     psych = psychUp(psych, 1)
@@ -297,7 +297,7 @@ def twenty_five(psych, danger):
         "you run to the guardhouse.", "Keep this item. Go to Story card 19."
     ]
     wrap(text)
-    addInv('perception', 'High-Powered Binoculars (25)', 'Perception Roll + 2', 2)
+    addInv('perception', 'High-Powered Binoculars 25', 'Perception Roll + 2', 2)
     psych, danger = ch1.nineteen(psych, danger)
     return psych, danger
 

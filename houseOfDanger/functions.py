@@ -3,9 +3,10 @@ import random
 import json
 from PIL import Image
 import time
+import pandas as pd
 
 
-dangerMeter = [3, 3, 3, 4, 4, 4, 5, 5, 5, 6]
+dangerMeter = [3, 3, 3, 4, 4, 4, 5, 5, 5, 6, 2, 2, 2]
 dangDict = {'Water Bottle': (3, 'Discard at any time to lower Danger Meter by 3')}
 psychDict = {}
 climbDict = {}
@@ -19,12 +20,19 @@ inv = {'danger': dangDict, 'psychic': psychDict, 'climbing': climbDict, 'fightin
 
 
 def inventory():
-    lst = {}
-    for x in inv.values():
-        for y in x.keys():
-            lst[y] = x.get(y)[1]
-    wrapFast([', '.join(lst.keys())])
-    print()
+    a = []
+    b = []
+    c = []
+    for x in inv.items():
+           if len(x[1]) > 0:
+                  for y in x[1]:
+                         a.append(x[0])
+                         b.append(y)
+                         c.append(x[1][y][0])
+    df = pd.DataFrame(a, columns=['Category'])
+    df['Name'] = b
+    df['Amount/Desc'] = c
+    print(df)
 
 
 def wrap(text):
@@ -40,6 +48,7 @@ def wrapFast(text):
     for x in text:
         for y in form.wrap(x):
             print(y)
+    input()
 
 
 def choose(options):
@@ -95,6 +104,7 @@ def challenge(state, cat, danger):
                     choice = 'n'
                 elif gear in dangDict.keys():
                     danger = dangerDown(danger, dangDict[gear][0])
+                    del dangDict[gear]
                 elif gear == 'Flashlight':
                     KO = OHKO()
                     if KO == 'empty':
@@ -103,29 +113,29 @@ def challenge(state, cat, danger):
                     elif KO == 'cancel':
                         gear = ''
                     else:
-                        return 'win'
+                        return 'win', danger
                 else:
                     add = inv[cat][gear][0]
                     choice = 'n'
         if choice == 'n':
-            roll = random.randint(1, 7)
+            roll = random.randint(1, 6)
             if roll == 1:
                 if add > 0:
                     del inv[cat][gear]
                     print(f"You rolled a one! You lost your {gear}")
-                    return 'fail'
+                    return 'fail', danger
             elif dangerMeter[danger] > roll + add:
                 print(f'You rolled a {roll}')
-                return 'fail'
+                return 'fail', danger
             else:
                 print(f'You rolled a {roll}')
-                return 'win'
+                return 'win', danger
 
 
 def dangerUp(danger, psych, amount):
     danger += amount
     if danger > 9:
-        dePsych(psych, 2)
+        psych = dePsych(psych, 2)
         danger = 2
         print("  You reach the top of the Danger Scale!")
         print(f"  Your Psychic Scale was set back by 2, and your Danger Level has been return to 3")
@@ -162,7 +172,7 @@ def addInv(cat, name, description, amount=0):
             if y == name:
                 print('  You have already discovered this item.')
                 return
-    if cat == 'item':
+    if cat == 'items':
         inv[cat][name] = description
     else:
         inv[cat][name] = (amount, description)
@@ -253,3 +263,15 @@ def opener():
         pic.show()
         time.sleep(120)
     pic.close()
+
+
+def searchInv(num):
+    for x in items.keys():
+        if x[-2:] == num:
+            return True
+    return False
+
+
+def showImage(href):
+    with Image.open(href) as pic:
+        pic.show()

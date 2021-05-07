@@ -112,7 +112,7 @@ def four(psych, danger):
     ]
     wrap(text)
     options = ['twelve', 'twenty one', '12', '21']
-    chal = challenge('optional', 'perception', danger)
+    chal, danger = challenge('optional', 'perception', danger)
     if chal == 'quit':
         pass
     elif chal == 'fail':
@@ -129,7 +129,7 @@ def four(psych, danger):
     wrap(text)
     cont = True
     while cont:
-        chal = challenge('optional', 'climbing', danger)
+        chal, danger = challenge('optional', 'climbing', danger)
         if chal == 'quit':
             cont = False
         elif chal == 'fail':
@@ -174,7 +174,7 @@ def five(psych, danger):
     wrap(text)
     cont = True
     while cont:
-        chal = challenge('optional', 'perception', danger)
+        chal, danger = challenge('optional', 'perception', danger)
         if chal == 'quit':
             cont = False
         elif chal == 'fail':
@@ -194,7 +194,7 @@ def five(psych, danger):
     ]
     wrap(text)
     options = ['sixteen', 'twenty eight', '16', '28']
-    chal = challenge('optional', 'strength', danger)
+    chal, danger = challenge('optional', 'strength', danger)
     if chal == 'quit':
         pass
     elif chal == 'fail':
@@ -257,7 +257,7 @@ def seven(psych, danger):
         "Optional Fighting Challenge: Fight the creature.", "WIN: Draw CLUE 10.", "LOSE: Raise Danger Meter by two."
     ]
     wrap(text)
-    chal = challenge('optional', 'fighting', danger)
+    chal, danger = challenge('optional', 'fighting', danger)
     if chal == 'quit':
         pass
     elif chal == 'fail':
@@ -342,7 +342,7 @@ def ten(psych, danger):
         "WIN: Draw CLUE 22.", "LOSE: Draw CLUE 17."
     ]
     wrap(text)
-    chal = challenge('required', 'climbing', danger)
+    chal, danger = challenge('required', 'climbing', danger)
     if chal == 'fail':
         psych, danger = clue.seventeen(psych, danger)
     else:
@@ -554,7 +554,7 @@ def nineteen(psych, danger):
         "LOSE: Raise Danger Meter by one."
     ]
     wrap(text)
-    chal = challenge('optional', 'perception', danger)
+    chal, danger = challenge('optional', 'perception', danger)
     if chal == 'quit':
         pass
     elif chal == 'fail':
@@ -630,11 +630,11 @@ def twenty_two(psych, danger):
         "LOSE: Raise Danger Meter by four and try again."
     ]
     wrap(text)
-    chal = challenge('required', 'fighting', danger)
+    chal, danger = challenge('required', 'fighting', danger)
     while chal == 'fail':
         print('You failed to escape! Your Danger Meter went up by 4.')
         psych, danger = dangerUp(danger, psych, 4)
-        chal = challenge('required', 'fighting', danger)
+        chal, danger = challenge('required', 'fighting', danger)
     psych, danger = clue.twenty(psych, danger)
     return psych, danger
 
@@ -650,7 +650,7 @@ def twenty_three(psych, danger):
         "WIN: Lower Danger Meter by two and draw CLUE 8.", "LOSE: Raise Danger Meter by two. You may try again."
     ]
     wrap(text)
-    chal = challenge('optional', 'perception', danger)
+    chal, danger = challenge('optional', 'perception', danger)
     while chal == 'fail':
         print('  You failed to find the source of the ripples! Your danger meter was raised by two.')
         psych, danger = dangerUp(danger, psych, 2)
@@ -658,9 +658,9 @@ def twenty_three(psych, danger):
         while choice not in ['y', 'n']:
             choice = input('Would you like to attempt to investigate the pool again?')
         if choice == 'n':
-            chal = ''
+            chal, danger = ''
         else:
-            chal = challenge('optional', 'perception', danger)
+            chal, danger = challenge('optional', 'perception', danger)
     if chal == 'win':
         psych = clue.eight(psych)
     text = [
@@ -717,7 +717,7 @@ def twenty_six(psych, danger):
         "Optional Perception Challenge: Grab the paper", "WIN: Draw CLUE 19.", "LOSE: Raise Danger Meter by one."
     ]
     wrap(text)
-    chal = challenge('optional', 'perception', danger)
+    chal, danger = challenge('optional', 'perception', danger)
     if chal == 'quit':
         pass
     elif chal == 'fail':
@@ -754,7 +754,7 @@ def twenty_seven(psych, danger):
         "LOSE: Raise Danger Meter by two and go to Story Card 26."
     ]
     wrap(text)
-    chal = challenge('optional', 'dexterity', danger)
+    chal, danger = challenge('optional', 'dexterity', danger)
     if chal == 'quit':
         pass
     elif chal == 'fail':

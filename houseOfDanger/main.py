@@ -1,4 +1,5 @@
 import chap1Cards as ch1
+import chap2Cards as ch2
 from functions import save
 from functions import loadSave
 from functions import opener
@@ -25,7 +26,7 @@ if start == 'n':
 if start == 'y':
     psych, danger, chapter = loadSave()
     if chapter == 1:
-        #psych, danger = ch2.thirty_one(psych, danger)
+        psych, danger = ch2.thirty_one(psych, danger)
         chapter = 2
         choice = input('Would you like to save your progress? [y/n] ')
         while choice not in ['y', 'n']:
@@ -51,3 +52,4 @@ if start == 'y':
     if chapter == 4:
         #psych, danger = ch5.one(psych, danger)
         pass
+
